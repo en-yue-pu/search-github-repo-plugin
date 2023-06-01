@@ -7,9 +7,9 @@ from quart import jsonify, request
 app = quart.Quart(__name__)
 quart_cors.cors(app, allow_origin="https://chat.openai.com") # 只允许chatgpt官方domin的访问
     
-@app.route("/repos/<string:query>/<string:language>/<number>", methods=['GET'])
-async def get_repos(query, language, number=1):
-    url = f"https://api.github.com/search/repositories?q={query}+language:{language}&sort=stars&order=desc&per_page={number}"
+@app.route("/repos/<string:query>/<string:language>/<max>", methods=['GET'])
+async def get_repos(query, language, max=1):
+    url = f"https://api.github.com/search/repositories?q={query}+language:{language}&sort=stars&order=desc&per_page={max}"
     response = requests.get(url)
 
     if response.status_code == 200:

@@ -1,12 +1,12 @@
 openapi: 3.0.1
 info:
   title: Search GitHub Repos Plugin
-  description: A plugin that allows the user to search for GitHub repos using a query, a language and a max number. Use the query as a keyword to search for repos and specify the language of the repos. number is the max number of repos will get
+  description: A plugin that allows the user to search for GitHub repos using a query, a language and a max number. Use the query as a keyword to search for repos and specify the language of the repos. max is the max number of repos will get
   version: 'v1'
 servers:
   - url: https://47a85869cdb5.ngrok.app
 paths:
-  /repos/{query}/{language}/{number}:
+  /repos/{query}/{language}/{max}:
     get:
       operationId: getRepos
       summary: Get the list of GitHub repos
@@ -24,11 +24,11 @@ paths:
         required: true
         description: The language of the repos.
       - in: path
-        name: number
+        name: max
         schema:
             type: string
         required: true
-        description: The max number of the repos.
+        description: The max number of the repos which I want.
       responses:
         "200":
           description: OK

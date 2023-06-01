@@ -1,12 +1,12 @@
 openapi: 3.0.1
 info:
   title: Search GitHub Repos Plugin
-  description: A plugin that allows the user to search for GitHub repos using a query. Use the query as a keyword to search for repos.
+  description: A plugin that allows the user to search for GitHub repos using a query and a language. Use the query as a keyword to search for repos and specify the language of the repos.
   version: 'v1'
 servers:
   - url: https://47a85869cdb5.ngrok.app
 paths:
-  /repos/{query}:
+  /repos/{query}/{language}:
     get:
       operationId: getRepos
       summary: Get the list of GitHub repos
@@ -17,6 +17,12 @@ paths:
             type: string
         required: true
         description: The keyword to search for repos.
+      - in: path
+        name: language
+        schema:
+            type: string
+        required: true
+        description: The language of the repos.
       responses:
         "200":
           description: OK

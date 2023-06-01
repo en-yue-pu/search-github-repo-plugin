@@ -6,10 +6,10 @@ from quart import jsonify, request
 
 app = quart.Quart(__name__)
 quart_cors.cors(app, allow_origin="https://chat.openai.com") # 只允许chatgpt官方domin的访问
-
-@app.route("/repos/<string:query>", methods=['GET'])
-async def get_repos(query):
-    url = f"https://api.github.com/search/repositories?q={query}+language:javascript&sort=stars&order=desc"
+    
+@app.route("/repos/<string:query>/<string:language>", methods=['GET'])
+async def get_repos(query, language):
+    url = f"https://api.github.com/search/repositories?q={query}+language:{language}&sort=stars&order=desc"
     response = requests.get(url)
 
     if response.status_code == 200:

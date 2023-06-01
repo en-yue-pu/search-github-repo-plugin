@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Search GitHub Repos Plugin
+  description: A plugin that allows the user to search for GitHub repos using a query. Use the query as a keyword to search for repos.
+  version: 'v1'
+servers:
+  - url: https://47a85869cdb5.ngrok.app
+paths:
+  /repos/{query}:
+    get:
+      operationId: getRepos
+      summary: Get the list of GitHub repos
+      parameters:
+      - in: path
+        name: query
+        schema:
+            type: string
+        required: true
+        description: The keyword to search for repos.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getReposResponse'
+
+components:
+  schemas:
+    getReposResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the repo.
+              description:
+                type: string
+                description: The description of the repo.

@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "search repository",
+    "name_for_model": "searchRepo",
+    "description_for_human": "search github repository",
+    "description_for_model": "search github repository",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "https://47a85869cdb5.ngrok.app/openapi.yaml"
+    },
+    "logo_url": "https://47a85869cdb5.ngrok.app/logo.jpg",
+    "contact_email": "legal@example.com",
+    "legal_info_url": "http://example.com/legal"
+  }
+  

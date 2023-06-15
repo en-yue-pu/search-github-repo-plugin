@@ -28,6 +28,6 @@ URLQueryItem(name: "per_page", value: "30"),
 
 
 
-pip install -r requirements.txt
-python main.py
-
+# pip install -r requirements.txt
+# python main.py
+# ngrok http 5003
